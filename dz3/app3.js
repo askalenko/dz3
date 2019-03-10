@@ -21,7 +21,11 @@ type: 'prompt'
 
 for (let i = 0; i < arr.length; i++) {
     let result =  askQuestion(arr[i]);
-    points += result ? 10 : 0;
+    // points += result ? 10 : 0;  								
+    while (result == true) {											//как реализовать суммирование очков
+    	points += 10;													//сюда цикл не заходит
+    	console.log ('ALL pointSSS' + points)
+    }   
 }
 alert('all points' + points);
 
@@ -30,21 +34,19 @@ alert('all points' + points);
 function askQuestion(ask) {											
 		if (ask.type == 'prompt') {				
 				let userAnswer = prompt(ask.question);
-				if (userAnswer == ask.answer ) {     
-					// result = true;
-					points =+ 10;					
+				if (userAnswer == ask.answer ) {     					//валидация ?
+					result = true; 									
+					// points =+ 10;					
 					 console.log('promt ' + points + ask);
-				}
+				} 
 		}  else if (ask.type == 'confirm') {
 			let userAnswer = confirm(ask.question);
-				if (userAnswer == true ) {
-					// result = true;
-						points =+ 10;					
+				if (userAnswer == true ) { 
+					result = true;
+						// points =+ 10;					
 						 console.log('confirm ' + points + ask);
 					}
 		} else {
 			return alert('not work')
 		}
 }
-
-alert('all points2 = ' + points);
