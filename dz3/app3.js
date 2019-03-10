@@ -21,11 +21,12 @@ type: 'prompt'
 
 for (let i = 0; i < arr.length; i++) {
     let result =  askQuestion(arr[i]);
-    // points += result ? 10 : 0;  								
-    while (result == true) {											//как реализовать суммирование очков
-    	points += 10;													//сюда цикл не заходит
-    	console.log ('ALL pointSSS' + points)
-    }   
+    points += result ? 10 : 0;  										
+    console.log('CHECK' + result)										//result не видит значений из функции
+    // while (result == true) {											//как реализовать суммирование очков
+    // 	points += 10;													//сюда цикл не заходит
+    // 	console.log ('ALL pointSSS' + points)
+    // }   
 }
 alert('all points' + points);
 
