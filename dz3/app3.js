@@ -22,11 +22,7 @@ type: 'prompt'
 for (let i = 0; i < arr.length; i++) {
     let result =  askQuestion(arr[i]);
     points += result ? 10 : 0;  										
-    console.log('CHECK' + result + 'POINTS' + points)					//result не видит значений из функции
-    // while (result == true) {											//как реализовать суммирование очков
-    // 	points += 10;													//сюда цикл не заходит
-    // 	console.log ('ALL pointSSS' + points)
-    // }   
+    console.log('CHECK' + result + 'POINTS' + points)
 }
 alert('all points' + points);
 
@@ -35,18 +31,17 @@ alert('all points' + points);
 function askQuestion(ask) {											
 		if (ask.type == 'prompt') {				
 				let userAnswer = prompt(ask.question);
-				if (userAnswer == ask.answer ) {     					//валидация ?
-					return result = true;								
-					// points =+ 10;					
-					 console.log('promt ' + points + ask);
-				} 
-		}  else if (ask.type == 'confirm') {
+				if (isNaN(+userAnswer)) {     							
+					alert ('введите число')
+					return askQuestion(ask)						
+				} else if (userAnswer  == ask.answer) {
+					return result = true; }
+					else {} 									
+		} else if (ask.type == 'confirm') {
 			let userAnswer = confirm(ask.question);
 				if (userAnswer == true ) { 
 					// result = true;
 					return result = true;
-						// points =+ 10;					
-						 console.log('confirm ' + points + ask);
 					}
 		} else {
 			return alert('not work')
