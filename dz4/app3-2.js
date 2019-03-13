@@ -29,36 +29,26 @@
 
 // alert(‘Результат: ’ + result);
 
-// function getOperand(text) {
 
-// }
 
 
 // ПОДСКАЗКА
 
+// let secondNumber = parseInt(prompt('Введите второе число'), 10);
+// let result = calc(firstNumber, act, secondNumber) ;
 
 
 
-
-
-
-let firstNumber = parseInt(prompt('Введите первое число'), 10);
-let act = prompt('Что нужно сделать? + - * /');
-let secondNumber = parseInt(prompt('Введите второе число'), 10);
-let result = calc(firstNumber, act, secondNumber) ;
-
-alert('Результат' + result);
-
-function calc(a,b,c) {
-	if (validateNumber(firstNumber) && validateSymbol(act) && validateNumber(secondNumber)) {              // && validateSymbol(act) && validateNumber(secondNumber)
+function calculate(a,b,c) {
+	if (validateNumber(operandA) && getAction(action) && validateNumber(operandB)) {              // && validateSymbol(act) && validateNumber(secondNumber)
 		if (act == '+') {
-			return calcSum(firstNumber, secondNumber)
+			return calcSum(operandA, operandB)
 		} else if (act == '-') {
-			return calcSubtraction(firstNumber, secondNumber)
+			return calcSubtraction(operandA, operandB)
 		} else if (act == '/') {
-			return calcDivision(firstNumber, secondNumber)
+			return calcDivision(operandA, operandB)
 		} else if (act == '*') {
-			return calcMultiplication (firstNumber, secondNumber)
+			return calcMultiplication (operandA, operandB)
 		}
 	} else {
 		return '(((';
@@ -89,6 +79,18 @@ function calcMultiplication(a, b) {
 
 
 
+
+function getOperandA(x) {
+	let firstNumber = parseInt(prompt('Введите первое число'), 0);
+	validateNumber(firstNumber); 
+	return firstNumber ;
+}
+function getOperandB(y) {
+	let secondNumber = parseInt(prompt('Введите второе число'), 0);
+	validateNumber(secondNumber); 
+	return secondNumber ;
+}
+
 function validateNumber(num) {
 	if (!isNaN(num)) {
 		return  true;
@@ -97,9 +99,9 @@ function validateNumber(num) {
 	}
 }
 
-function validateSymbol(symbol) {
-
-	if (symbol.match(/[\+\-\*\/]/)) {
+function getAction(act) {
+	let act = prompt('Что нужно сделать? + - * /');
+	if (act.match(/[\+\-\*\/]/)) {
 		return true;
 	} else {
 		alert ('операция недоступна. введите один из этих символов + - * /')
@@ -107,4 +109,12 @@ function validateSymbol(symbol) {
 }
 
 
+
+const operandA = getOperandA();
+const action = getAction();
+const operandB = getOperandB();
+
+const result = calculate(operandA, operandB, action);
+
+alert('Результат' + result);
 
