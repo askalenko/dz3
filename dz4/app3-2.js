@@ -34,30 +34,24 @@
 
 // ПОДСКАЗКА
 
-// let secondNumber = parseInt(prompt('Введите второе число'), 10);
-// let result = calc(firstNumber, act, secondNumber) ;
 
 
 
 function calculate(a,b,c) {
-	if (validateNumber(operandA) && getAction(action) && validateNumber(operandB)) {              // && validateSymbol(act) && validateNumber(secondNumber)
-		if (act == '+') {
+	if (getOperand(operandA)  && getOperand(operandB) && getAction(action)) {              // && validateSymbol(act) && validateNumber(secondNumber)
+		if (action == '+') {
 			return calcSum(operandA, operandB)
-		} else if (act == '-') {
+		} else if (action == '-') {
 			return calcSubtraction(operandA, operandB)
-		} else if (act == '/') {
+		} else if (action == '/') {
 			return calcDivision(operandA, operandB)
-		} else if (act == '*') {
+		} else if (action == '*') {
 			return calcMultiplication (operandA, operandB)
 		}
 	} else {
 		return '(((';
 	}	
 }
-
-
-
-
 
 
 function calcSum(a, b) {
@@ -77,44 +71,34 @@ function calcMultiplication(a, b) {
 	return mulResult;
 }
 
-
-
-
-function getOperandA(x) {
-	let firstNumber = parseInt(prompt('Введите первое число'), 0);
-	validateNumber(firstNumber); 
-	return firstNumber ;
-}
-function getOperandB(y) {
-	let secondNumber = parseInt(prompt('Введите второе число'), 0);
-	validateNumber(secondNumber); 
-	return secondNumber ;
-}
-
-function validateNumber(num) {
-	if (!isNaN(num)) {
-		return  true;
+function getOperand(ff) {
+	let chislo = parseInt(prompt('Введите число'), 0);
+	if (!isNaN(chislo))  {
+		return chislo;
 	} else {
-		alert ('Введите число')
+		alert ('Вы ввели не число')
+		 getOperand(chislo);
 	}
+	// return getOperand(x) ;
 }
 
-function getAction(act) {
+
+function getAction(bb) {
 	let act = prompt('Что нужно сделать? + - * /');
 	if (act.match(/[\+\-\*\/]/)) {
-		return true;
+		return act;
 	} else {
 		alert ('операция недоступна. введите один из этих символов + - * /')
 	}
 }
 
 
-
-const operandA = getOperandA();
+const operandA = getOperand();
 const action = getAction();
-const operandB = getOperandB();
+const operandB = getOperand();
 
 const result = calculate(operandA, operandB, action);
+
 
 alert('Результат' + result);
 
