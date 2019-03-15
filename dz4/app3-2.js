@@ -54,22 +54,21 @@
 
 
 function calculate(firstNumber, secondNumber, operationSymbol) {
-switch (operationSymbol) {
-	case  '+': 
-		return calcSum(operandA, operandB);
-		break;
-	case '-': 
-		return calcSubtraction(operandA, operandB);	
-		break;
-	case '/': 
-		return calcDivision(operandA, operandB);
-		break;
-	case '/': 
-		return calcMultiplication (operandA, operandB);
-		break;	
+	switch (operationSymbol) {
+		case  '+': 
+			return calcSum(firstNumber, secondNumber);
+			break;
+		case '-': 
+			return calcSubtraction(firstNumber, secondNumber);	
+			break;
+		case '/': 
+			return calcDivision(firstNumber, secondNumber);
+			break;
+		case '*': 
+			return calcMultiplication (firstNumber, secondNumber);
+			break;	
+	}
 }
-}
-
 
 
 function calcSum(a, b) {
