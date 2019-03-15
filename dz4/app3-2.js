@@ -37,58 +37,76 @@
 
 
 
-function calculate(a,b,c) {
-	if (getOperand(operandA)  && getOperand(operandB) && getAction(action)) {              // && validateSymbol(act) && validateNumber(secondNumber)
-		if (action == '+') {
-			return calcSum(operandA, operandB)
-		} else if (action == '-') {
-			return calcSubtraction(operandA, operandB)
-		} else if (action == '/') {
-			return calcDivision(operandA, operandB)
-		} else if (action == '*') {
-			return calcMultiplication (operandA, operandB)
-		}
-	} else {
-		return '(((';
-	}	
+// function calculate(firstNumber, secondNumber, operationSymbol) {
+// 	// if (getOperand(operandA)  && getOperand(operandB) && getAction(action)) {              // && validateSymbol(act) && validateNumber(secondNumber)
+// 		if (operationSymbol == '+') {
+// 			return calcSum(operandA, operandB)
+// 		} else if (operationSymbol == '-') {
+// 			return calcSubtraction(operandA, operandB)
+// 		} else if (operationSymbol == '/') {
+// 			return calcDivision(operandA, operandB)
+// 		} else if (operationSymbol == '*') {
+// 			return calcMultiplication (operandA, operandB)
+// 		} else {
+// 		return 'somthing wrong';
+// 	}	
+// }
+
+
+function calculate(firstNumber, secondNumber, operationSymbol) {
+switch (operationSymbol) {
+	case  '+': 
+		return calcSum(operandA, operandB);
+		break;
+	case '-': 
+		return calcSubtraction(operandA, operandB);	
+		break;
+	case '/': 
+		return calcDivision(operandA, operandB);
+		break;
+	case '/': 
+		return calcMultiplication (operandA, operandB);
+		break;	
 }
+}
+
 
 
 function calcSum(a, b) {
-	sumResult = a + b;
+	let sumResult = a + b;
 	return sumResult;
 }
 function calcSubtraction(a, b) {
-	subResult = a - b;
+	let subResult = a - b;
 	return subResult;
 }
 function calcDivision(a, b) {
-	divResult = a / b;
+	let divResult = a / b;
 	return divResult;
 }
 function calcMultiplication(a, b) {
-	mulResult = a * b;
+	let mulResult = a * b;
 	return mulResult;
 }
 
-function getOperand(ff) {
-	let chislo = parseInt(prompt('Введите число'), 0);
-	if (!isNaN(chislo))  {
-		return chislo;
+function getOperand(validNumber) {
+	let someNumber = parseInt(prompt('Введите число'), 0);   //лучше не использовать parsseInt - не сработает для дробных
+	if (!isNaN(someNumber))  {                               //isNaN или !isNaN   ????????
+		return someNumber;
 	} else {
 		alert ('Вы ввели не число')
-		 getOperand(chislo);
+		 getOperand();										//если здесь будет  getOperand(someNumber) - я сюда опять передам то число которое не прошло валидацию или новое? 
 	}
-	// return getOperand(x) ;
 }
 
 
-function getAction(bb) {
+function getAction(actionSymbol) {
 	let act = prompt('Что нужно сделать? + - * /');
 	if (act.match(/[\+\-\*\/]/)) {
 		return act;
 	} else {
 		alert ('операция недоступна. введите один из этих символов + - * /')
+		return	getAction();                                 //здесь надо преедавать act или () ?????? 
 	}
 }
 
