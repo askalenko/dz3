@@ -5,43 +5,34 @@
 alert("ЗАДАЧА 1");
 
 
-function getNumber(validNumber) {
+function getNumber() {
 	let someNumber = prompt('Введите число');   
 	if (!isNaN(someNumber))  {                               
-		return isNumberEven(someNumber);
-		return quantityEvenNumber;
+		 let res = countEvenNumbers(someNumber);
+		 console.log(res);
+		 return res;
 	} else {
 		alert ('Вы ввели не число')
 		 getNumber();										
 	}
-	console.log(quantityEvenNumber);
-	return quantityEvenNumber;
 }
 
 
-function isNumberEven(numString) {
+function countEvenNumbers(numString) {
 	let arrNumString = numString.split('');
-	console.log(arrNumString);
-	 for (var i = 0; i <= arrNumString[i]; i++) {
-	 	// console.log(arrNumString[i]);
+	let quantityEvenNumber = 0;
+	 for (let i = 0; i <= arrNumString.length; i++) {
 	  if (arrNumString[i] % 2 == 0) {
-	  	// console.log(arrNumString[i]);
-	    let quantityEvenNumber =+ 1;
-	    	console.log('четное: ' + quantityEvenNumber);
-	    	return quantityEvenNumber;
+	     quantityEvenNumber ++;	
 	  } else {
-	  	 let quantityEvenNumber =+ 0 ;
-	  	 console.log('не четное ' + quantityEvenNumber); 
-	  	 // return quantityEvenNumber;
+	  	 quantityEvenNumber += 0 ;
 	  } 
-	} 	
-	return quantityEvenNumber;
+	}
+	return quantityEvenNumber; 
 }
 
 let result = getNumber();
-
-
-alert('В введенном числе ' + quantityEvenNumber + 'четных чисел');
+alert('В введенном числе ' + result + ' четных чисел');
 
 
 
@@ -60,7 +51,7 @@ const maxIntervalNumber = 2000;
 
 
 function randomNumber(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)   //разобраться в логике работы 
+    let rand = min + Math.random() * (max - min + 1)   //разобраться в логике работы 
     rand = Math.round(rand);
     return rand;
   }
@@ -77,6 +68,3 @@ let result2 = largeNumber();
 
 alert('наибольшее число из друх рандомных из 1000 и 2000 : ' + result2);
 
-
-
-// alert(maxNum);
