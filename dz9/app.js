@@ -58,7 +58,7 @@ contactsList.addEventListener ('click', onDeleteContactBtnClick);
 
 function onDeleteContactBtnClick(event) {
 	// contactsList.target.onclick
-	// const deleteContactBtn  = event.target;
+	const deleteContactBtn  = event.target;
 	deleteContactBtn.onclick = function(event) {
     	
 		const dltParent = deleteContactBtn.parentNode;
