@@ -19,7 +19,6 @@ function submitContact() {
 		name: contactNameInput.value,
 		phone: contactPhoneInput.value,
 		age: contactAgeInput.value,
-		// delete: deleteContactBtn.value,
 	}
 	addContact(contact);
 	resetContactForm();
@@ -31,12 +30,10 @@ function addContact(contact) {
 	contactTr.innerHTML = contactTemplate
 								.replace('{{name}}', contact.name || '-')
 								.replace('{{phone}}', contact.phone || '-')
-								.replace('{{age}}', contact.age || '-')
-								.replace('{{delete}}', '<input type="button" id="deleteContactBtn" value="Delete">'); //почему не срабатывает если deleteContactBtn
+								.replace('{{age}}', contact.age || '-');	
 
 	contactsList.appendChild(contactTr);
-	// console.log(contact);
-	// resetContactForm();
+
 
 }
 
@@ -44,30 +41,26 @@ function resetContactForm() {
 		contactNameInput.value = '';
 		contactPhoneInput.value = '';
 		contactAgeInput.value = '';
-		// deleteContactBtn.remove(deleteContactBtn.parentNode);
+
 }
 
 
 addContact({name:"Alex", phone: '111'});
 
 
-
-
-
 contactsList.addEventListener ('click', onDeleteContactBtnClick);
 
+
 function onDeleteContactBtnClick(event) {
-	// contactsList.target.onclick
-	const deleteContactBtn  = event.target;
-	deleteContactBtn.onclick = function(event) {
-    	
+const target = event.target;
+const deleteContactBtn = document.getElementsByClassName("deleteContactBtn")[0]; //как избежать постоянного обращения
+	if (target.className == "deleteContactBtn") {
 		const dltParent = deleteContactBtn.parentNode;
 		const dltTr = dltParent.parentNode;
-		console.log(dltTr);
 		dltTr.remove(dltTr.parentNode);
-  }
-	
-	
-	
+	} else {
+		// alert ('false')
+	}
 }
-	
+
+
