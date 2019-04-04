@@ -6,31 +6,26 @@ function calculator(generalArg) {
 	return {
 		add: function add(secondArg)  {
 		  	console.log('второй аргумент ' + secondArg);
-			const result = generalArg + secondArg;
-			return result;
+			return generalArg + secondArg;
 		},
 		sub: function sub(secondArg) {
 		 	console.log('второй аргумент ' + secondArg);
-			const result = generalArg - secondArg;
-			return result;
+			return generalArg - secondArg;
 		},
 
 		divide: function divide(secondArg) {
 		 	console.log('второй аргумент ' + secondArg);
-			const result = generalArg / secondArg;
-			return result;
+			return generalArg / secondArg;
 		},
 
 		mult: function mult(secondArg) {
 		 	console.log('второй аргумент ' + secondArg);
-			const result = generalArg * secondArg;
-			return result;
+			return generalArg * secondArg;
 		},
 
 		set: function set(secondArg) {
 		 	console.log('заменяем первый на ' + secondArg);
-			generalArg = secondArg;
-			return generalArg;
+			return generalArg = secondArg;
 		},
 
 		get: function get() {
