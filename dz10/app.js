@@ -4,38 +4,38 @@
 function calculator(generalArg) {
 
 	return {
-		 add: function add(secondArg)  {
-			  	console.log('второй аргумент ' + secondArg);
-				const result = generalArg + secondArg;
-				return result;
+		add: function add(secondArg)  {
+		  	console.log('второй аргумент ' + secondArg);
+			const result = generalArg + secondArg;
+			return result;
 		},
 		sub: function sub(secondArg) {
-			 	console.log('второй аргумент ' + secondArg);
-				const result = generalArg - secondArg;
-				return result;
+		 	console.log('второй аргумент ' + secondArg);
+			const result = generalArg - secondArg;
+			return result;
 		},
 
 		divide: function divide(secondArg) {
-			 	console.log('второй аргумент ' + secondArg);
-				const result = generalArg / secondArg;
-				return result;
+		 	console.log('второй аргумент ' + secondArg);
+			const result = generalArg / secondArg;
+			return result;
 		},
 
 		mult: function mult(secondArg) {
-			 	console.log('второй аргумент ' + secondArg);
-				const result = generalArg * secondArg;
-				return result;
+		 	console.log('второй аргумент ' + secondArg);
+			const result = generalArg * secondArg;
+			return result;
 		},
 
 		set: function set(secondArg) {
-			 	console.log('заменяем первый на ' + secondArg);
-				generalArg = secondArg;
-				return generalArg;
+		 	console.log('заменяем первый на ' + secondArg);
+			generalArg = secondArg;
+			return generalArg;
 		},
 
 		get: function get() {
-			 	console.log('текущий первый аргумент ' + generalArg);
-				return generalArg;
+		 	console.log('текущий первый аргумент ' + generalArg);
+			return generalArg;
 		}
 
 	}
