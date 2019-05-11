@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="../common/css/dark-theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./app.js" async></script>
+    <title>Todo list</title>
+</head>
+<body>
+ <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="contactsList"></tbody>
+    </table>
+    <script type="text/template" id="contactTemplate">
+        <tr id={{id}}>
+        <td>{{name}}</td>
+        <td>{{phone}}</td>
+        <td class={{class}}>{{status}}</td>
+        <td><button>Delete</button></td>
+        </tr>
+    </script>
+</body>
+</html>
